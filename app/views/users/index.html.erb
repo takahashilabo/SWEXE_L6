@@ -1,0 +1,16 @@
+<h1>ユーザー一覧</h1>
+
+<% if flash[:info] %>
+  <font color="green"><%= flash[:info] %></font>
+<% end %>
+
+<% @users.each do |e| %>
+  <p>
+      <%= e.uid %>
+      <%= link_to '削除', user_path(e), method: :delete %>
+  </p>
+<% end %>
+
+<hr>
+
+<%= link_to 'ユーザー追加', new_user_path %>
